@@ -37,6 +37,7 @@ public class PcacheSqeuence : MonoBehaviour
 
             //Debug.Log(folder + "/" + file + imax.ToString() + ".pcache loaded");
         }
+        gameObject.SetActive(false);
     }
 
     // Update is called once per frame\
