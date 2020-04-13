@@ -128,7 +128,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"obj":{"fileID":2800000,"guid":"1d8481de16af723418a688958c41224b","type":3}}'
+      m_SerializableObject: 
     min: -Infinity
     max: Infinity
     descendantCount: 0
@@ -141,7 +141,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"obj":{"fileID":2800000,"guid":"276d9e395ae18fe40a9b4988549f2349","type":3}}'
+      m_SerializableObject: 
     min: -Infinity
     max: Infinity
     descendantCount: 0
@@ -691,29 +691,30 @@ VisualEffectResource:
       /*inout */lifetime, (float)0.17);\n        }\n        \n\n\n#if VFX_USE_ALIVE_CURRENT\n
       \       if (alive)\n        {\n\t\t\tuint deadIndex = deadListIn.DecrementCounter();\n
       \           uint index = deadListIn[deadIndex];\n            attributeBuffer.Store3((index
-      * 0x8 + 0x0) << 2,asuint(position));\n            attributeBuffer.Store3((index
-      * 0x4 + 0x4E200) << 2,asuint(color));\n            attributeBuffer.Store((index
-      * 0x1 + 0x75300) << 2,asuint(lifetime));\n            attributeBuffer.Store3((index
-      * 0x8 + 0x7EF40) << 2,asuint(velocity));\n            attributeBuffer.Store3((index
-      * 0x8 + 0x7EF44) << 2,asuint(direction));\n            attributeBuffer.Store((index
-      * 0x8 + 0x7EF43) << 2,asuint(seed));\n            attributeBuffer.Store((index
-      * 0x8 + 0x3) << 2,uint(alive));\n            attributeBuffer.Store((index *
-      0x8 + 0x4) << 2,asuint(age));\n            \n\n        }\n#else\n        uint
-      index = particleIndex;\n        attributeBuffer.Store3((index * 0x8 + 0x0) <<
-      2,asuint(position));\n        attributeBuffer.Store3((index * 0x4 + 0x4E200)
-      << 2,asuint(color));\n        attributeBuffer.Store((index * 0x1 + 0x75300)
-      << 2,asuint(lifetime));\n        attributeBuffer.Store3((index * 0x8 + 0x7EF40)
-      << 2,asuint(velocity));\n        attributeBuffer.Store3((index * 0x8 + 0x7EF44)
-      << 2,asuint(direction));\n        attributeBuffer.Store((index * 0x8 + 0x7EF43)
-      << 2,asuint(seed));\n        attributeBuffer.Store((index * 0x8 + 0x3) << 2,uint(alive));\n
-      \       attributeBuffer.Store((index * 0x8 + 0x4) << 2,asuint(age));\n        \n\n#endif\n
-      \   }\n}\n"
+      * 0x4 + 0x0) << 2,asuint(position));\n            attributeBuffer.Store3((index
+      * 0x4 + 0x27100) << 2,asuint(color));\n            attributeBuffer.Store((index
+      * 0x1 + 0x4E200) << 2,asuint(lifetime));\n            attributeBuffer.Store3((index
+      * 0x8 + 0x57E40) << 2,asuint(velocity));\n            attributeBuffer.Store3((index
+      * 0x8 + 0x57E44) << 2,asuint(direction));\n            attributeBuffer.Store((index
+      * 0x8 + 0x57E43) << 2,asuint(seed));\n            attributeBuffer.Store((index
+      * 0x2 + 0xA6040) << 2,uint(alive));\n            attributeBuffer.Store((index
+      * 0x2 + 0xA6041) << 2,asuint(age));\n            \n\n        }\n#else\n        uint
+      index = particleIndex;\n        attributeBuffer.Store3((index * 0x4 + 0x0) <<
+      2,asuint(position));\n        attributeBuffer.Store3((index * 0x4 + 0x27100)
+      << 2,asuint(color));\n        attributeBuffer.Store((index * 0x1 + 0x4E200)
+      << 2,asuint(lifetime));\n        attributeBuffer.Store3((index * 0x8 + 0x57E40)
+      << 2,asuint(velocity));\n        attributeBuffer.Store3((index * 0x8 + 0x57E44)
+      << 2,asuint(direction));\n        attributeBuffer.Store((index * 0x8 + 0x57E43)
+      << 2,asuint(seed));\n        attributeBuffer.Store((index * 0x2 + 0xA6040) <<
+      2,uint(alive));\n        attributeBuffer.Store((index * 0x2 + 0xA6041) << 2,asuint(age));\n
+      \       \n\n#endif\n    }\n}\n"
   - compute: 1
     name: '[System 1]Update'
     source: "#pragma kernel CSMain\n#define NB_THREADS_PER_GROUP 64\n#define VFX_USE_POSITION_CURRENT
       1\n#define VFX_USE_LIFETIME_CURRENT 1\n#define VFX_USE_VELOCITY_CURRENT 1\n#define
       VFX_USE_DIRECTION_CURRENT 1\n#define VFX_USE_SEED_CURRENT 1\n#define VFX_USE_ALIVE_CURRENT
-      1\n#define VFX_USE_AGE_CURRENT 1\n#define VFX_WORLD_SPACE 1\n#include \"Packages/com.unity.visualeffectgraph/Shaders/RenderPipeline/HDRP/VFXDefines.hlsl\"\n\n\nCBUFFER_START(parameters)\n
+      1\n#define VFX_USE_AGE_CURRENT 1\n#define VFX_HAS_INDIRECT_DRAW 1\n#define VFX_WORLD_SPACE
+      1\n#include \"Packages/com.unity.visualeffectgraph/Shaders/RenderPipeline/HDRP/VFXDefines.hlsl\"\n\n\nCBUFFER_START(parameters)\n
       \   float4x4 uniform_b;\n    float deltaTime_b;\n    uint3 PADDING_0;\nCBUFFER_END\n\n\n#include
       \"Packages/com.unity.visualeffectgraph/Shaders/Common/VFXCommonCompute.cginc\"\n#include
       \"Packages/com.unity.visualeffectgraph/Shaders/VFXCommon.cginc\"\n\n\n\nRWByteAddressBuffer
@@ -732,45 +733,46 @@ VisualEffectResource:
       groupId          : SV_GroupID,\n            uint3 groupThreadId    : SV_GroupThreadID)\n{\n\tuint
       id = groupThreadId.x + groupId.x * NB_THREADS_PER_GROUP + groupId.y * dispatchWidth
       * NB_THREADS_PER_GROUP;\n\tuint index = id;\n\tif (id < nbMax)\n\t{\n#if VFX_USE_ALIVE_CURRENT\n\t\tbool
-      alive = (attributeBuffer.Load((index * 0x8 + 0x3) << 2));\n\t\t\n\n\t\tif (alive)\n\t\t{\n\t\t\tfloat3
-      position = asfloat(attributeBuffer.Load3((index * 0x8 + 0x0) << 2));\n\t\t\tfloat
-      lifetime = asfloat(attributeBuffer.Load((index * 0x1 + 0x75300) << 2));\n\t\t\tfloat3
-      velocity = asfloat(attributeBuffer.Load3((index * 0x8 + 0x7EF40) << 2));\n\t\t\tfloat3
-      direction = asfloat(attributeBuffer.Load3((index * 0x8 + 0x7EF44) << 2));\n\t\t\tuint
-      seed = (attributeBuffer.Load((index * 0x8 + 0x7EF43) << 2));\n\t\t\tfloat age
-      = asfloat(attributeBuffer.Load((index * 0x8 + 0x4) << 2));\n\t\t\t\n\n\t\t\t\n#if
-      VFX_USE_OLDPOSITION_CURRENT\n\t\t\toldPosition = position;\n#endif\n\t\t\t\n\t\t\t{\n\t\t\t
-      \   float tmp_n = RAND;\n\t\t\t    float tmp_p = tmp_n * (float)2;\n\t\t\t    float
-      tmp_q = (float)-1 + tmp_p;\n\t\t\t    float tmp_r = RAND;\n\t\t\t    float tmp_s
-      = tmp_r * (float)2;\n\t\t\t    float tmp_t = (float)-1 + tmp_s;\n\t\t\t    float
-      tmp_u = RAND;\n\t\t\t    float tmp_v = tmp_u * (float)2;\n\t\t\t    float tmp_w
-      = (float)-1 + tmp_v;\n\t\t\t    float3 tmp_x = float3(tmp_q, tmp_t, tmp_w);\n\t\t\t
-      \   float3 tmp_z = tmp_x * tmp_x;\n\t\t\t    float tmp_ba = tmp_z[2];\n\t\t\t
-      \   float tmp_bb = tmp_z[1];\n\t\t\t    float tmp_bc = tmp_ba + tmp_bb;\n\t\t\t
-      \   float tmp_bd = tmp_z[0];\n\t\t\t    float tmp_be = tmp_bc + tmp_bd;\n\t\t\t
-      \   float tmp_bg = pow(tmp_be, (float)0.5);\n\t\t\t    float tmp_bh = (float)1
-      / tmp_bg;\n\t\t\t    float3 tmp_bi = float3(tmp_bh, tmp_bh, tmp_bh);\n\t\t\t
-      \   float3 tmp_bj = tmp_x * tmp_bi;\n\t\t\t    float3 tmp_bk = normalize(mul((float3x3)uniform_b,
-      tmp_bj));\n\t\t\t    VelocityDirection_18C( /*inout */velocity,  /*inout */direction,
-      \ /*inout */seed, tmp_bk, (float)0, (float)0.02, (float)1);\n\t\t\t}\n\t\t\tEulerIntegration(
-      /*inout */position, velocity, deltaTime_b);\n\t\t\tAge( /*inout */age, deltaTime_b);\n\t\t\tReap(age,
+      alive = (attributeBuffer.Load((index * 0x2 + 0xA6040) << 2));\n\t\t\n\n\t\tif
+      (alive)\n\t\t{\n\t\t\tfloat3 position = asfloat(attributeBuffer.Load3((index
+      * 0x4 + 0x0) << 2));\n\t\t\tfloat lifetime = asfloat(attributeBuffer.Load((index
+      * 0x1 + 0x4E200) << 2));\n\t\t\tfloat3 velocity = asfloat(attributeBuffer.Load3((index
+      * 0x8 + 0x57E40) << 2));\n\t\t\tfloat3 direction = asfloat(attributeBuffer.Load3((index
+      * 0x8 + 0x57E44) << 2));\n\t\t\tuint seed = (attributeBuffer.Load((index * 0x8
+      + 0x57E43) << 2));\n\t\t\tfloat age = asfloat(attributeBuffer.Load((index *
+      0x2 + 0xA6041) << 2));\n\t\t\t\n\n\t\t\t\n#if VFX_USE_OLDPOSITION_CURRENT\n\t\t\toldPosition
+      = position;\n#endif\n\t\t\t\n\t\t\t{\n\t\t\t    float tmp_n = RAND;\n\t\t\t
+      \   float tmp_p = tmp_n * (float)2;\n\t\t\t    float tmp_q = (float)-1 + tmp_p;\n\t\t\t
+      \   float tmp_r = RAND;\n\t\t\t    float tmp_s = tmp_r * (float)2;\n\t\t\t    float
+      tmp_t = (float)-1 + tmp_s;\n\t\t\t    float tmp_u = RAND;\n\t\t\t    float tmp_v
+      = tmp_u * (float)2;\n\t\t\t    float tmp_w = (float)-1 + tmp_v;\n\t\t\t    float3
+      tmp_x = float3(tmp_q, tmp_t, tmp_w);\n\t\t\t    float3 tmp_z = tmp_x * tmp_x;\n\t\t\t
+      \   float tmp_ba = tmp_z[2];\n\t\t\t    float tmp_bb = tmp_z[1];\n\t\t\t    float
+      tmp_bc = tmp_ba + tmp_bb;\n\t\t\t    float tmp_bd = tmp_z[0];\n\t\t\t    float
+      tmp_be = tmp_bc + tmp_bd;\n\t\t\t    float tmp_bg = pow(tmp_be, (float)0.5);\n\t\t\t
+      \   float tmp_bh = (float)1 / tmp_bg;\n\t\t\t    float3 tmp_bi = float3(tmp_bh,
+      tmp_bh, tmp_bh);\n\t\t\t    float3 tmp_bj = tmp_x * tmp_bi;\n\t\t\t    float3
+      tmp_bk = normalize(mul((float3x3)uniform_b, tmp_bj));\n\t\t\t    VelocityDirection_18C(
+      /*inout */velocity,  /*inout */direction,  /*inout */seed, tmp_bk, (float)0,
+      (float)0.02, (float)1);\n\t\t\t}\n\t\t\tEulerIntegration( /*inout */position,
+      velocity, deltaTime_b);\n\t\t\tAge( /*inout */age, deltaTime_b);\n\t\t\tReap(age,
       lifetime,  /*inout */alive);\n\t\t\t\n\n\t\t\tif (alive)\n\t\t\t{\n\t\t\t\tattributeBuffer.Store3((index
-      * 0x8 + 0x0) << 2,asuint(position));\n\t\t\t\tattributeBuffer.Store3((index
-      * 0x8 + 0x7EF40) << 2,asuint(velocity));\n\t\t\t\tattributeBuffer.Store3((index
-      * 0x8 + 0x7EF44) << 2,asuint(direction));\n\t\t\t\tattributeBuffer.Store((index
-      * 0x8 + 0x7EF43) << 2,asuint(seed));\n\t\t\t\tattributeBuffer.Store((index *
-      0x8 + 0x4) << 2,asuint(age));\n\t\t\t\t\n\n#if VFX_HAS_INDIRECT_DRAW\n                uint
+      * 0x4 + 0x0) << 2,asuint(position));\n\t\t\t\tattributeBuffer.Store3((index
+      * 0x8 + 0x57E40) << 2,asuint(velocity));\n\t\t\t\tattributeBuffer.Store3((index
+      * 0x8 + 0x57E44) << 2,asuint(direction));\n\t\t\t\tattributeBuffer.Store((index
+      * 0x8 + 0x57E43) << 2,asuint(seed));\n\t\t\t\tattributeBuffer.Store((index *
+      0x2 + 0xA6041) << 2,asuint(age));\n\t\t\t\t\n\n#if VFX_HAS_INDIRECT_DRAW\n                uint
       indirectIndex = indirectBuffer.IncrementCounter();\n\t\t\t\tindirectBuffer[indirectIndex]
       = index;\n#endif\n\t\t\t}\n\t\t\telse\n\t\t\t{\n\t\t\t\tattributeBuffer.Store((index
-      * 0x8 + 0x3) << 2,uint(alive));\n\t\t\t\t\n\n\t\t\t\tuint deadIndex = deadListOut.IncrementCounter();\n\t\t\t\tdeadListOut[deadIndex]
+      * 0x2 + 0xA6040) << 2,uint(alive));\n\t\t\t\t\n\n\t\t\t\tuint deadIndex = deadListOut.IncrementCounter();\n\t\t\t\tdeadListOut[deadIndex]
       = index;\n\t\t\t}\n\t\t}\n#else\n\t\tfloat3 position = asfloat(attributeBuffer.Load3((index
-      * 0x8 + 0x0) << 2));\n\t\tfloat lifetime = asfloat(attributeBuffer.Load((index
-      * 0x1 + 0x75300) << 2));\n\t\tfloat3 velocity = asfloat(attributeBuffer.Load3((index
-      * 0x8 + 0x7EF40) << 2));\n\t\tfloat3 direction = asfloat(attributeBuffer.Load3((index
-      * 0x8 + 0x7EF44) << 2));\n\t\tuint seed = (attributeBuffer.Load((index * 0x8
-      + 0x7EF43) << 2));\n\t\tbool alive = (attributeBuffer.Load((index * 0x8 + 0x3)
-      << 2));\n\t\tfloat age = asfloat(attributeBuffer.Load((index * 0x8 + 0x4) <<
-      2));\n\t\t\n\n\t\t\n#if VFX_USE_OLDPOSITION_CURRENT\n\t\toldPosition = position;\n#endif\n\t\t\n\t\t{\n\t\t
+      * 0x4 + 0x0) << 2));\n\t\tfloat lifetime = asfloat(attributeBuffer.Load((index
+      * 0x1 + 0x4E200) << 2));\n\t\tfloat3 velocity = asfloat(attributeBuffer.Load3((index
+      * 0x8 + 0x57E40) << 2));\n\t\tfloat3 direction = asfloat(attributeBuffer.Load3((index
+      * 0x8 + 0x57E44) << 2));\n\t\tuint seed = (attributeBuffer.Load((index * 0x8
+      + 0x57E43) << 2));\n\t\tbool alive = (attributeBuffer.Load((index * 0x2 + 0xA6040)
+      << 2));\n\t\tfloat age = asfloat(attributeBuffer.Load((index * 0x2 + 0xA6041)
+      << 2));\n\t\t\n\n\t\t\n#if VFX_USE_OLDPOSITION_CURRENT\n\t\toldPosition = position;\n#endif\n\t\t\n\t\t{\n\t\t
       \   float tmp_n = RAND;\n\t\t    float tmp_p = tmp_n * (float)2;\n\t\t    float
       tmp_q = (float)-1 + tmp_p;\n\t\t    float tmp_r = RAND;\n\t\t    float tmp_s
       = tmp_r * (float)2;\n\t\t    float tmp_t = (float)-1 + tmp_s;\n\t\t    float
@@ -785,12 +787,12 @@ VisualEffectResource:
       /*inout */velocity,  /*inout */direction,  /*inout */seed, tmp_bk, (float)0,
       (float)0.02, (float)1);\n\t\t}\n\t\tEulerIntegration( /*inout */position, velocity,
       deltaTime_b);\n\t\tAge( /*inout */age, deltaTime_b);\n\t\tReap(age, lifetime,
-      \ /*inout */alive);\n\t\t\n\n\t\tattributeBuffer.Store3((index * 0x8 + 0x0)
-      << 2,asuint(position));\n\t\tattributeBuffer.Store3((index * 0x8 + 0x7EF40)
-      << 2,asuint(velocity));\n\t\tattributeBuffer.Store3((index * 0x8 + 0x7EF44)
-      << 2,asuint(direction));\n\t\tattributeBuffer.Store((index * 0x8 + 0x7EF43)
-      << 2,asuint(seed));\n\t\tattributeBuffer.Store((index * 0x8 + 0x3) << 2,uint(alive));\n\t\tattributeBuffer.Store((index
-      * 0x8 + 0x4) << 2,asuint(age));\n\t\t\n\n#if VFX_HAS_INDIRECT_DRAW\n        uint
+      \ /*inout */alive);\n\t\t\n\n\t\tattributeBuffer.Store3((index * 0x4 + 0x0)
+      << 2,asuint(position));\n\t\tattributeBuffer.Store3((index * 0x8 + 0x57E40)
+      << 2,asuint(velocity));\n\t\tattributeBuffer.Store3((index * 0x8 + 0x57E44)
+      << 2,asuint(direction));\n\t\tattributeBuffer.Store((index * 0x8 + 0x57E43)
+      << 2,asuint(seed));\n\t\tattributeBuffer.Store((index * 0x2 + 0xA6040) << 2,uint(alive));\n\t\tattributeBuffer.Store((index
+      * 0x2 + 0xA6041) << 2,asuint(age));\n\t\t\n\n#if VFX_HAS_INDIRECT_DRAW\n        uint
       indirectIndex = indirectBuffer.IncrementCounter();\n\t\tindirectBuffer[indirectIndex]
       = index;\n#endif\n#endif\n\t}\n}\n"
   - compute: 0
@@ -798,13 +800,14 @@ VisualEffectResource:
     source: "Shader \"Hidden/VFX/System 1/Point Output\"\n{\n\tSubShader\n\t{\t\n\t\tTags
       { \"Queue\"=\"Transparent\" \"IgnoreProjector\"=\"True\" \"RenderType\"=\"Transparent\"
       }\n\t\t\n\t\t\n\t\t\n\t\t\n\t\t\n\t\t\n\t\t\n\t\t\n\t\t\n\t\t\n\t\t\n\t\t\n\t\tBlend
-      SrcAlpha One\n\t\tZTest LEqual\n\t\tZWrite Off\n\t\tCull Off\n\t\t\n\t\n\t\t\t\n\t\tHLSLINCLUDE\n\t\t#if
+      One OneMinusSrcAlpha\n\t\tZTest LEqual\n\t\tZWrite Off\n\t\tCull Off\n\t\t\n\t\n\t\t\t\n\t\tHLSLINCLUDE\n\t\t#if
       !defined(VFX_WORLD_SPACE) && !defined(VFX_LOCAL_SPACE)\n\t\t#define VFX_LOCAL_SPACE
       1\n\t\t#endif\n\t\t\n\t\t#define NB_THREADS_PER_GROUP 64\n\t\t#define VFX_USE_POSITION_CURRENT
       1\n\t\t#define VFX_USE_COLOR_CURRENT 1\n\t\t#define VFX_USE_LIFETIME_CURRENT
       1\n\t\t#define VFX_USE_ALPHA_CURRENT 1\n\t\t#define VFX_USE_ALIVE_CURRENT 1\n\t\t#define
-      VFX_USE_AGE_CURRENT 1\n\t\t#define IS_TRANSPARENT_PARTICLE 1\n\t\t#define VFX_BLENDMODE_ADD
-      1\n\t\t\n\t\t\n\t\t\n\t\t#define VFX_WORLD_SPACE 1\n\t\t#include \"Packages/com.unity.visualeffectgraph/Shaders/RenderPipeline/HDRP/VFXDefines.hlsl\"\n\t\t\n\n\t\tCBUFFER_START(parameters)\n\t\t
+      VFX_USE_AGE_CURRENT 1\n\t\t#define IS_TRANSPARENT_PARTICLE 1\n\t\t#define VFX_BLENDMODE_PREMULTIPLY
+      1\n\t\t#define VFX_HAS_INDIRECT_DRAW 1\n\t\t\n\t\t\n\t\t\n\t\t#define VFX_WORLD_SPACE
+      1\n\t\t#include \"Packages/com.unity.visualeffectgraph/Shaders/RenderPipeline/HDRP/VFXDefines.hlsl\"\n\t\t\n\n\t\tCBUFFER_START(parameters)\n\t\t
       \   float Color_a;\n\t\t    float uniform_c;\n\t\t    uint2 PADDING_0;\n\t\tCBUFFER_END\n\t\t\n\n\t\t\n\t\t#define
       VFX_NEEDS_COLOR_INTERPOLATOR (VFX_USE_COLOR_CURRENT || VFX_USE_ALPHA_CURRENT)\n\t\t\n\t\tByteAddressBuffer
       attributeBuffer;\t\n\t\t\n\t\t#if VFX_HAS_INDIRECT_DRAW\n\t\tStructuredBuffer<uint>
@@ -840,19 +843,19 @@ VisualEffectResource:
       = 0;\n\t\t\t\t\t\t#if USE_DEAD_LIST_COUNT\n\t\t\t\t\t\tdeadCount = deadListCount.Load(0);\n\t\t\t\t\t\t#endif\t\n\t\t\t\t\t\tif
       (index >= asuint(nbMax) - deadCount)\n\t\t\t\t\t\t\treturn o; // cull\n\t\t\t\t\t\t\n\t\t\t\t\t\t#if
       VFX_HAS_INDIRECT_DRAW\n\t\t\t\t\t\tindex = indirectBuffer[index];\n\t\t\t\t\t\tfloat3
-      position = asfloat(attributeBuffer.Load3((index * 0x8 + 0x0) << 2));\n\t\t\t\t\t\tfloat3
-      color = asfloat(attributeBuffer.Load3((index * 0x4 + 0x4E200) << 2));\n\t\t\t\t\t\tfloat
-      lifetime = asfloat(attributeBuffer.Load((index * 0x1 + 0x75300) << 2));\n\t\t\t\t\t\tfloat
-      alpha = (float)1;\n\t\t\t\t\t\tbool alive = (attributeBuffer.Load((index * 0x8
-      + 0x3) << 2));\n\t\t\t\t\t\tfloat age = asfloat(attributeBuffer.Load((index
-      * 0x8 + 0x4) << 2));\n\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t#else\n\t\t\t\t\t\tbool
-      alive = (attributeBuffer.Load((index * 0x8 + 0x3) << 2));\n\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\tif
+      position = asfloat(attributeBuffer.Load3((index * 0x4 + 0x0) << 2));\n\t\t\t\t\t\tfloat3
+      color = asfloat(attributeBuffer.Load3((index * 0x4 + 0x27100) << 2));\n\t\t\t\t\t\tfloat
+      lifetime = asfloat(attributeBuffer.Load((index * 0x1 + 0x4E200) << 2));\n\t\t\t\t\t\tfloat
+      alpha = (float)1;\n\t\t\t\t\t\tbool alive = (attributeBuffer.Load((index * 0x2
+      + 0xA6040) << 2));\n\t\t\t\t\t\tfloat age = asfloat(attributeBuffer.Load((index
+      * 0x2 + 0xA6041) << 2));\n\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t#else\n\t\t\t\t\t\tbool
+      alive = (attributeBuffer.Load((index * 0x2 + 0xA6040) << 2));\n\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\tif
       (!alive)\n\t\t\t\t\t\t\treturn o;\n\t\t\t\t\t\t\t\n\t\t\t\t\t\tfloat3 position
-      = asfloat(attributeBuffer.Load3((index * 0x8 + 0x0) << 2));\n\t\t\t\t\t\tfloat3
-      color = asfloat(attributeBuffer.Load3((index * 0x4 + 0x4E200) << 2));\n\t\t\t\t\t\tfloat
-      lifetime = asfloat(attributeBuffer.Load((index * 0x1 + 0x75300) << 2));\n\t\t\t\t\t\tfloat
+      = asfloat(attributeBuffer.Load3((index * 0x4 + 0x0) << 2));\n\t\t\t\t\t\tfloat3
+      color = asfloat(attributeBuffer.Load3((index * 0x4 + 0x27100) << 2));\n\t\t\t\t\t\tfloat
+      lifetime = asfloat(attributeBuffer.Load((index * 0x1 + 0x4E200) << 2));\n\t\t\t\t\t\tfloat
       alpha = (float)1;\n\t\t\t\t\t\tfloat age = asfloat(attributeBuffer.Load((index
-      * 0x8 + 0x4) << 2));\n\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t#endif\n\t\t\t\t\t\t\n\t\t\t\tAttributeFromCurve_2C8A43C4(
+      * 0x2 + 0xA6041) << 2));\n\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t#endif\n\t\t\t\t\t\t\n\t\t\t\tAttributeFromCurve_2C8A43C4(
       /*inout */color,  /*inout */alpha, age, lifetime, Color_a);\n\t\t\t\t{\n\t\t\t\t
       \   float tmp_m = age / lifetime;\n\t\t\t\t    float tmp_n = saturate(tmp_m);\n\t\t\t\t
       \   float4 tmp_o = SampleGradient(uniform_c,tmp_n);\n\t\t\t\t    float tmp_p
@@ -875,6 +878,26 @@ VisualEffectResource:
       o = (ps_output)0;\n\t\t\t\to.color = VFXGetFragmentColor(i);\n\t\t        o.color
       = VFXApplyPreExposure(o.color);\n\t\t\t\to.color = VFXApplyFog(o.color,i);\n\t\t\t\tVFXClipFragmentColor(o.color.a,i);\n\t\t\t\to.color.a
       = saturate(o.color.a);\n\t\t\t\treturn o;\n\t\t\t}\n\t\t\tENDHLSL\n\t\t}\n\t\t\n\n\t\t\n\t\t\n\t}\n}\n"
+  - compute: 1
+    name: '[System 1]CameraSort'
+    source: "#pragma kernel CSMain\n#define NB_THREADS_PER_GROUP 64\n#define VFX_USE_POSITION_CURRENT
+      1\n#define USE_DEAD_LIST_COUNT 1\n#define VFX_WORLD_SPACE 1\n#include \"Packages/com.unity.visualeffectgraph/Shaders/RenderPipeline/HDRP/VFXDefines.hlsl\"\n\n\n\n#include
+      \"Packages/com.unity.visualeffectgraph/Shaders/Common/VFXCommonCompute.cginc\"\n#include
+      \"Packages/com.unity.visualeffectgraph/Shaders/VFXCommon.cginc\"\n\n\n\nCBUFFER_START(params)\n
+      \   uint nbMax;\n    uint dispatchWidth;\nCBUFFER_END\n\nCBUFFER_START(cameraParams)\n
+      \   float3 cameraPosition;\nCBUFFER_END\n\nByteAddressBuffer attributeBuffer;\nStructuredBuffer<uint>
+      inputBuffer;\n\n#if USE_DEAD_LIST_COUNT\nByteAddressBuffer deadListCount;\n#endif\n\nstruct
+      Kvp\n{\n\tfloat sortKey;\n\tuint index;\n};\n\nRWStructuredBuffer<Kvp> outputBuffer;\n\n[numthreads(NB_THREADS_PER_GROUP,1,1)]\nvoid
+      CSMain(uint3 groupId          : SV_GroupID,\n            uint3 groupThreadId
+      \   : SV_GroupThreadID)\n{\n\tuint threshold = nbMax;\n#if USE_DEAD_LIST_COUNT\n\tthreshold
+      -= deadListCount.Load(0);\n#endif\n\tuint id = groupThreadId.x + groupId.x *
+      NB_THREADS_PER_GROUP + groupId.y * dispatchWidth * NB_THREADS_PER_GROUP;\n\tif
+      (id < threshold)\n\t{\n\t\tuint index = inputBuffer[id];\n\t\tfloat3 position
+      = asfloat(attributeBuffer.Load3((index * 0x4 + 0x0) << 2));\n\t\t\n\n\t\t\n#if
+      VFX_LOCAL_SPACE\n\t\tfloat3 wPos = mul(localToWorld,float4(position,1.0f)).xyz;\n#else\n\t\tfloat3
+      wPos = position;\n#endif\n\t\tfloat3 camToPos = wPos - cameraPosition;\n\t\t\n\t\tKvp
+      kvp;\n\t\tkvp.sortKey = dot(camToPos,camToPos); // sqr distance to the camera\n\t\tkvp.index
+      = index;\n\n\t\toutputBuffer[id] = kvp;\n\t}\n}\n"
   m_Infos:
     m_Expressions:
       m_Expressions:
@@ -1121,9 +1144,9 @@ VisualEffectResource:
       m_NamedObject:
         m_Array:
         - m_ExpressionIndex: 16
-          m_Value: {fileID: 2800000, guid: 276d9e395ae18fe40a9b4988549f2349, type: 3}
+          m_Value: {fileID: 0}
         - m_ExpressionIndex: 17
-          m_Value: {fileID: 2800000, guid: 1d8481de16af723418a688958c41224b, type: 3}
+          m_Value: {fileID: 0}
       m_Bool:
         m_Array: []
     m_ExposedExpressions:
@@ -1137,109 +1160,109 @@ VisualEffectResource:
       index: 17
     m_Buffers:
     - type: 1
-      size: 840000
+      size: 760000
       layout:
       - name: position
         type: 3
         offset:
           bucket: 0
-          structure: 8
+          structure: 4
           element: 0
-      - name: alive
-        type: 17
-        offset:
-          bucket: 0
-          structure: 8
-          element: 3
-      - name: age
-        type: 1
-        offset:
-          bucket: 0
-          structure: 8
-          element: 4
       - name: color
         type: 3
         offset:
-          bucket: 320000
+          bucket: 160000
           structure: 4
           element: 0
       - name: lifetime
         type: 1
         offset:
-          bucket: 480000
+          bucket: 320000
           structure: 1
           element: 0
       - name: velocity
         type: 3
         offset:
-          bucket: 520000
+          bucket: 360000
           structure: 8
           element: 0
       - name: seed
         type: 6
         offset:
-          bucket: 520000
+          bucket: 360000
           structure: 8
           element: 3
       - name: direction
         type: 3
         offset:
-          bucket: 520000
+          bucket: 360000
           structure: 8
           element: 4
+      - name: alive
+        type: 17
+        offset:
+          bucket: 680000
+          structure: 2
+          element: 0
+      - name: age
+        type: 1
+        offset:
+          bucket: 680000
+          structure: 2
+          element: 1
       capacity: 40000
       stride: 4
     - type: 1
-      size: 840000
+      size: 760000
       layout:
       - name: position
         type: 3
         offset:
           bucket: 0
-          structure: 8
+          structure: 4
           element: 0
-      - name: alive
-        type: 17
-        offset:
-          bucket: 0
-          structure: 8
-          element: 3
-      - name: age
-        type: 1
-        offset:
-          bucket: 0
-          structure: 8
-          element: 4
       - name: color
         type: 3
         offset:
-          bucket: 320000
+          bucket: 160000
           structure: 4
           element: 0
       - name: lifetime
         type: 1
         offset:
-          bucket: 480000
+          bucket: 320000
           structure: 1
           element: 0
       - name: velocity
         type: 3
         offset:
-          bucket: 520000
+          bucket: 360000
           structure: 8
           element: 0
       - name: seed
         type: 6
         offset:
-          bucket: 520000
+          bucket: 360000
           structure: 8
           element: 3
       - name: direction
         type: 3
         offset:
-          bucket: 520000
+          bucket: 360000
           structure: 8
           element: 4
+      - name: alive
+        type: 17
+        offset:
+          bucket: 680000
+          structure: 2
+          element: 0
+      - name: age
+        type: 1
+        offset:
+          bucket: 680000
+          structure: 2
+          element: 1
       capacity: 40000
       stride: 4
     - type: 1
@@ -1263,6 +1286,21 @@ VisualEffectResource:
       layout: []
       capacity: 0
       stride: 4
+    - type: 4
+      size: 40000
+      layout: []
+      capacity: 0
+      stride: 4
+    - type: 0
+      size: 40000
+      layout: []
+      capacity: 0
+      stride: 8
+    - type: 0
+      size: 40000
+      layout: []
+      capacity: 0
+      stride: 8
     m_CPUBuffers:
     - capacity: 1
       stride: 1
@@ -1323,7 +1361,7 @@ VisualEffectResource:
       processor: {fileID: 0}
       shaderSourceIndex: -1
   - type: 1
-    flags: 1
+    flags: 3
     capacity: 40000
     layer: 4294967295
     buffers:
@@ -1337,6 +1375,12 @@ VisualEffectResource:
       index: 4
     - nameId: spawner_input
       index: 1
+    - nameId: indirectBuffer
+      index: 5
+    - nameId: sortBufferA
+      index: 6
+    - nameId: sortBufferB
+      index: 7
     values:
     - nameId: bounds_center
       index: 19
@@ -1373,6 +1417,8 @@ VisualEffectResource:
         index: 0
       - nameId: deadListOut
         index: 3
+      - nameId: indirectBuffer
+        index: 5
       values:
       - nameId: uniform_b
         index: 9
@@ -1381,10 +1427,26 @@ VisualEffectResource:
       params: []
       processor: {fileID: 0}
       shaderSourceIndex: 1
+    - type: 805306369
+      buffers:
+      - nameId: attributeBuffer
+        index: 0
+      - nameId: inputBuffer
+        index: 5
+      - nameId: outputBuffer
+        index: 6
+      - nameId: deadListCount
+        index: 4
+      values: []
+      params: []
+      processor: {fileID: 0}
+      shaderSourceIndex: 3
     - type: 1073741824
       buffers:
       - nameId: attributeBuffer
         index: 0
+      - nameId: indirectBuffer
+        index: 5
       values:
       - nameId: Color_a
         index: 10
@@ -1393,6 +1455,8 @@ VisualEffectResource:
       params:
       - nameId: sortPriority
         index: 0
+      - nameId: indirectDraw
+        index: 1
       processor: {fileID: 0}
       shaderSourceIndex: 2
 --- !u!114 &8926484042661614577
@@ -1424,7 +1488,7 @@ MonoBehaviour:
       slotIndex: 0
   m_OutputFlowSlot:
   - link: []
-  blendMode: 0
+  blendMode: 3
   cullMode: 3
   zWriteMode: 0
   zTestMode: 0
@@ -3171,7 +3235,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"obj":{"fileID":2800000,"guid":"1d8481de16af723418a688958c41224b","type":3}}'
+      m_SerializableObject: 
     m_Space: 2147483647
   m_Property:
     name: o
@@ -3247,7 +3311,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"obj":{"fileID":2800000,"guid":"276d9e395ae18fe40a9b4988549f2349","type":3}}'
+      m_SerializableObject: 
     m_Space: 2147483647
   m_Property:
     name: o

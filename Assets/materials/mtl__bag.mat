@@ -54,7 +54,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _DetailMap:
         m_Texture: {fileID: 2800000, guid: 6aa9881c95d0cec4eb81ef136d461ba3, type: 3}
-        m_Scale: {x: 30, y: 30}
+        m_Scale: {x: 3, y: 3}
         m_Offset: {x: 0, y: 0}
     - _DetailMask:
         m_Texture: {fileID: 0}
@@ -199,7 +199,7 @@ Material:
     - _EnableWind: 0
     - _EnergyConservingSpecularColor: 1
     - _GlossMapScale: 1
-    - _Glossiness: 0
+    - _Glossiness: 0.4
     - _GlossyReflections: 1
     - _HdrpVersion: 2
     - _HeightAmplitude: 0.02
@@ -234,8 +234,8 @@ Material:
     - _SSRefractionProjectionModel: 0
     - _ShiverDirectionality: 0.5
     - _ShiverDrag: 0.2
-    - _Smoothness: 0
-    - _SmoothnessRemapMax: 0
+    - _Smoothness: 0.4
+    - _SmoothnessRemapMax: 0.4
     - _SmoothnessRemapMin: 0
     - _SmoothnessTextureChannel: 0
     - _SpecularAAScreenSpaceVariance: 0.1

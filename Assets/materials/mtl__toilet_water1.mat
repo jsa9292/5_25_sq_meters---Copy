@@ -10,8 +10,7 @@ Material:
   m_Name: mtl__toilet_water1
   m_Shader: {fileID: 4800000, guid: 6e4ae4064600d784cac1e41a9e6f2e59, type: 3}
   m_ShaderKeywords: _BLENDMODE_ALPHA _BLENDMODE_PRESERVE_SPECULAR_LIGHTING _ENABLE_FOG_ON_TRANSPARENT
-    _MATERIAL_FEATURE_SUBSURFACE_SCATTERING _MATERIAL_FEATURE_TRANSMISSION _NORMALMAP_TANGENT_SPACE
-    _SURFACE_TYPE_TRANSPARENT
+    _NORMALMAP_TANGENT_SPACE _SURFACE_TYPE_TRANSPARENT
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -19,6 +18,7 @@ Material:
   stringTagMap:
     RenderType: Transparent
   disabledShaderPasses:
+  - DistortionVectors
   - TransparentDepthPrepass
   - TransparentDepthPostpass
   - TransparentBackface
@@ -180,7 +180,7 @@ Material:
     - _DistortionBlurSrcBlend: 1
     - _DistortionDepthTest: 1
     - _DistortionDstBlend: 1
-    - _DistortionEnable: 1
+    - _DistortionEnable: 0
     - _DistortionScale: 1
     - _DistortionSrcBlend: 1
     - _DistortionVectorBias: -1
@@ -219,8 +219,8 @@ Material:
     - _IridescenceMask: 1
     - _IridescenceThickness: 1
     - _LinkDetailsWithBase: 0
-    - _MaterialID: 0
-    - _Metallic: 0.013859236
+    - _MaterialID: 1
+    - _Metallic: 0.013859229
     - _Mode: 3
     - _NormalMapSpace: 0
     - _NormalScale: 1
@@ -244,10 +244,10 @@ Material:
     - _SpecularAAThreshold: 0.2
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _StencilRef: 1
+    - _StencilRef: 2
     - _StencilRefDepth: 0
     - _StencilRefDistortionVec: 64
-    - _StencilRefGBuffer: 1
+    - _StencilRefGBuffer: 2
     - _StencilRefMV: 128
     - _StencilWriteMask: 3
     - _StencilWriteMaskDepth: 48
@@ -279,9 +279,9 @@ Material:
     - _ZTestModeDistortion: 4
     - _ZWrite: 0
     m_Colors:
-    - _BaseColor: {r: 0.6886792, g: 0.6886792, b: 0.6886792, a: 0.37254903}
+    - _BaseColor: {r: 0.6886792, g: 0.6886792, b: 0.6886792, a: 0.43529412}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
-    - _Color: {r: 0.6886792, g: 0.6886792, b: 0.6886792, a: 0.37254903}
+    - _Color: {r: 0.6886792, g: 0.6886792, b: 0.6886792, a: 0.43529412}
     - _DiffusionProfileAsset: {r: 0, g: 0, b: 0, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}

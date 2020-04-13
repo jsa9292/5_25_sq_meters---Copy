@@ -12,26 +12,6 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material.002
-    second: {fileID: 2100000, guid: 64af1c2ac1c4bd34385dc7f54db643c0, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: lambert2
-    second: {fileID: 2100000, guid: be28799e24bea5540a316d6d05c82263, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: lambert3
-    second: {fileID: 2100000, guid: e4c0f596bd19a444c8bcf194a0e2c00c, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: lambert4
-    second: {fileID: 2100000, guid: 42530d79c41f1fc41bb8056aac88218c, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
       name: mtl__bag
     second: {fileID: 2100000, guid: 0d9ecf6a879d69947b5c19f246a1f14d, type: 2}
   - first:
@@ -44,6 +24,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: mtl__beeper1
     second: {fileID: 2100000, guid: 458ad6ddce298b94f9bd862a69dccb6f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mtl__beeper_lightGreen
+    second: {fileID: 2100000, guid: a3f45c618b60f0e499be681115624854, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -123,7 +108,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: mtl__book13_okjung
-    second: {fileID: 2100000, guid: 816f769ad4c2b074692f353791aca504, type: 2}
+    second: {fileID: 2100000, guid: 8030cd8c885b5104a8b3943a4d39b8b2, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -407,11 +392,6 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: phong19.002
-    second: {fileID: 2100000, guid: a3f45c618b60f0e499be681115624854, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
       name: sticker1
     second: {fileID: 2100000, guid: dad84e4673eccde4dae5a56f354c1339, type: 2}
   materials:
@@ -453,7 +433,7 @@ ModelImporter:
     importCameras: 1
     importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 1
+    generateSecondaryUV: 0
     useFileUnits: 1
     keepQuads: 0
     weldVertices: 1
@@ -470,7 +450,7 @@ ModelImporter:
     useFileScale: 1
   tangentSpace:
     normalSmoothAngle: 60
-    normalImportMode: 0
+    normalImportMode: 1
     tangentImportMode: 3
     normalCalculationMode: 4
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0

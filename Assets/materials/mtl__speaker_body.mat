@@ -199,7 +199,7 @@ Material:
     - _EnableWind: 0
     - _EnergyConservingSpecularColor: 1
     - _GlossMapScale: 1
-    - _Glossiness: 0
+    - _Glossiness: 0.3
     - _GlossyReflections: 1
     - _HdrpVersion: 2
     - _HeightAmplitude: 0.02
@@ -234,8 +234,8 @@ Material:
     - _SSRefractionProjectionModel: 0
     - _ShiverDirectionality: 0.5
     - _ShiverDrag: 0.2
-    - _Smoothness: 0
-    - _SmoothnessRemapMax: 0
+    - _Smoothness: 0.3
+    - _SmoothnessRemapMax: 0.3
     - _SmoothnessRemapMin: 0
     - _SmoothnessTextureChannel: 0
     - _SpecularAAScreenSpaceVariance: 0.1
@@ -277,9 +277,9 @@ Material:
     - _ZTestModeDistortion: 4
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0.17230643, g: 0.17230643, b: 0.17230643, a: 1}
+    - _BaseColor: {r: 0.17230639, g: 0.17230639, b: 0.17230639, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
-    - _Color: {r: 0.17230643, g: 0.17230643, b: 0.17230643, a: 1}
+    - _Color: {r: 0.17230636, g: 0.17230636, b: 0.17230636, a: 1}
     - _DiffusionProfileAsset: {r: 0, g: 0, b: 0, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}

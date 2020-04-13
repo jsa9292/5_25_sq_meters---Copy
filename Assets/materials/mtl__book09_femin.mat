@@ -199,7 +199,7 @@ Material:
     - _EnableWind: 0
     - _EnergyConservingSpecularColor: 1
     - _GlossMapScale: 1
-    - _Glossiness: 0
+    - _Glossiness: 0.6
     - _GlossyReflections: 1
     - _HdrpVersion: 2
     - _HeightAmplitude: 0.02
@@ -218,7 +218,7 @@ Material:
     - _IridescenceThickness: 1
     - _LinkDetailsWithBase: 0
     - _MaterialID: 1
-    - _Metallic: 0.016547397
+    - _Metallic: 0
     - _Mode: 0
     - _NormalMapSpace: 0
     - _NormalScale: 1
@@ -234,8 +234,8 @@ Material:
     - _SSRefractionProjectionModel: 0
     - _ShiverDirectionality: 0.5
     - _ShiverDrag: 0.2
-    - _Smoothness: 0
-    - _SmoothnessRemapMax: 0
+    - _Smoothness: 0.6
+    - _SmoothnessRemapMax: 0.6
     - _SmoothnessRemapMin: 0
     - _SmoothnessTextureChannel: 0
     - _SpecularAAScreenSpaceVariance: 0.1

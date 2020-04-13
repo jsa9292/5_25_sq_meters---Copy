@@ -1,26 +1,2 @@
 Base path: D:/2019.1.14f1/Editor/Data
 Cmd: initializeCompiler
-Cmd: preprocessCompute
-  insize=6872 outsize=6874 ok=1
-Cmd: preprocessCompute
-  insize=6929 outsize=6931 ok=1
-Cmd: preprocess
-  insize=6438 outsize=405 ok=1
-Cmd: preprocessCompute
-  insize=6803 outsize=6805 ok=1
-Cmd: preprocessCompute
-  insize=6675 outsize=6677 ok=1
-Cmd: preprocess
-  insize=6438 outsize=405 ok=1
-Cmd: preprocessCompute
-  insize=6803 outsize=6805 ok=1
-Cmd: preprocessCompute
-  insize=6675 outsize=6677 ok=1
-Cmd: preprocess
-  insize=6438 outsize=405 ok=1
-Cmd: preprocessCompute
-  insize=6803 outsize=6805 ok=1
-Cmd: preprocessCompute
-  insize=6675 outsize=6677 ok=1
-Cmd: preprocess
-  insize=6438 outsize=405 ok=1
